@@ -25,12 +25,14 @@ urlpatterns = [
     path('regist', User.regist),
     path('login', User.login),
     path('changepass', User.changepass),
+    path('currentwar', User.currentwar),
     path('clans', User.clans),
     path('players', User.players),
     path('addblaclk', Black.addblaclk),
     path('deletebalck', Black.deletebalck),
     path('getblack', Black.getblack),
     path('gettumengclans', TumengClans.gettumengclans),
+
     # path(r'^logout/$', views.logout),
 ]
 
