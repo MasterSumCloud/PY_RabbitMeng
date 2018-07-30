@@ -7,7 +7,7 @@ from django.core import serializers
 
 def addblaclk(request):
     if request.method == 'POST':
-        parames = json.loads(request.body)
+        parames = json.loads(request.body.decode('utf-8'))
         clanname = parames['clanname']
         clantag = parames['clantag']
         if clantag is not None:
@@ -26,7 +26,7 @@ def addblaclk(request):
 
 def deletebalck(request):
     if request.method == 'POST':
-        parames = json.loads(request.body)
+        parames = json.loads(request.body.decode('utf-8'))
         clantag = parames['clantag']
         success = BlackList.objects.filter(clantag=clantag).delete()
         if success:

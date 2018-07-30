@@ -9,7 +9,7 @@ import requests
 
 def regist(request):
     if request.method == 'POST':
-        parames = json.loads(request.body)
+        parames = json.loads(request.body.decode('utf-8'))
         username = parames['username']
         password = parames['password']
         if username is not None and password is not None:
@@ -28,7 +28,7 @@ def regist(request):
 
 def changepass(request):
     if request.method == 'POST':
-        parames = json.loads(request.body)
+        parames = json.loads(request.body.decode('utf-8'))
         username = parames['username']
         password = parames['password']
         newPassword = parames['newPassword']
@@ -50,7 +50,7 @@ def login(request):
     if request.method == 'POST':
         # username = request.POST.get('username', '')
         # password = request.POST.get('password', '')
-        parames = json.loads(request.body)
+        parames = json.loads(request.body.decode('utf-8'))
         username = parames['username']
         password = parames['password']
         user = User.objects.filter(username=username, password=password)
@@ -67,7 +67,7 @@ def login(request):
 def clans(request):
     if request.method == 'POST':
 
-        parames = json.loads(request.body)
+        parames = json.loads(request.body.decode('utf-8'))
         tag = parames['tag'].replace('#', '%23')
         url = 'https://api.clashofclans.com/v1/clans/' + tag
         res = requests.get(url, None, headers=getheads())
@@ -84,7 +84,7 @@ def clans(request):
 
 def players(request):
     if request.method == 'POST':
-        parames = json.loads(request.body)
+        parames = json.loads(request.body.decode('utf-8'))
         tag = parames['tag'].replace('#', '%23')
         url = 'https://api.clashofclans.com/v1/players/' + tag
         res = requests.get(url, None, headers=getheads())
@@ -101,7 +101,7 @@ def players(request):
 
 def currentwar(request):
     if request.method == 'POST':
-        parames = json.loads(request.body)
+        parames = json.loads(request.body.decode('utf-8'))
         tag = parames['tag'].replace('#', '%23')
         url = 'https://api.clashofclans.com/v1/clans/' + tag + '/currentwar'
         res = requests.get(url, None, headers=getheads())
