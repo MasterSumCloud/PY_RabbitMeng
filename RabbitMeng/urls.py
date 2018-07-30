@@ -19,6 +19,7 @@ from django.urls import path
 from account import views as User
 from blacklist import views as Black
 from tumengclans import views as TumengClans
+from clanwartime import views as WarStartTime
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,6 +33,7 @@ urlpatterns = [
     path('deletebalck', Black.deletebalck),
     path('getblack', Black.getblack),
     path('gettumengclans', TumengClans.gettumengclans),
+    path('warstarttime', WarStartTime.warstarttime),
 
     # path(r'^logout/$', views.logout),
 ]
