@@ -75,7 +75,7 @@ def clans(request):
             return HttpResponse(json.dumps({'state': True, 'msg': '请求成功', 'data': res.json()}),
                                 content_type='application/json')
         else:
-            return HttpResponse(json.dumps({'state': False, 'msg': '请求失败'}), content_type='application/json')
+            return HttpResponse(json.dumps({'state': False, 'msg': res.text}), content_type='application/json')
     elif request.method == 'GET':
         return HttpResponse(json.dumps({'state': False, 'msg': '不允许GET请求'}), content_type='application/json')
     else:
@@ -92,7 +92,7 @@ def players(request):
             return HttpResponse(json.dumps({'state': True, 'msg': '请求成功', 'data': res.json()}),
                                 content_type='application/json')
         else:
-            return HttpResponse(json.dumps({'state': False, 'msg': '请求失败'}), content_type='application/json')
+            return HttpResponse(json.dumps({'state': False, 'msg': res.text}), content_type='application/json')
     elif request.method == 'GET':
         return HttpResponse(json.dumps({'state': False, 'msg': '不允许GET请求'}), content_type='application/json')
     else:
@@ -109,7 +109,7 @@ def currentwar(request):
             return HttpResponse(json.dumps({'state': True, 'msg': '请求成功', 'data': res.json()}),
                                 content_type='application/json')
         else:
-            return HttpResponse(json.dumps({'state': False, 'msg': '请求失败'}), content_type='application/json')
+            return HttpResponse(json.dumps({'state': False, 'msg': res.text}), content_type='application/json')
     elif request.method == 'GET':
         return HttpResponse(json.dumps({'state': False, 'msg': '不允许GET请求'}), content_type='application/json')
     else:
